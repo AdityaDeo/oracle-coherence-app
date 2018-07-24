@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<cache-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.oracle.com/coherence/coherence-cache-config"
+	xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-cache-config
+   coherence-cache-config.xsd">
+
+	<caching-scheme-mapping>
+		<cache-mapping>
+			<cache-name>*</cache-name>
+			<scheme-name>deo-distributed-scheme</scheme-name>
+		</cache-mapping>
+	</caching-scheme-mapping>
+
+	<caching-schemes>
+		<distributed-scheme>
+			<scheme-name>deo-distributed-scheme</scheme-name>
+			<service-name>DistributedCache</service-name>
+			<partition-count>11</partition-count>
+
+			<backing-map-scheme>
+				<partitioned>true</partitioned>
+				<local-scheme></local-scheme>
+			</backing-map-scheme>
+
+			<autostart>true</autostart>
+		</distributed-scheme>
+
+		<invocation-scheme>
+			<scheme-name>deo-invocation-scheme</scheme-name>
+			<service-name>Invocation</service-name>
+			<thread-count>5</thread-count>
+			<autostart>true</autostart>
+		</invocation-scheme>
+	</caching-schemes>
+</cache-config>

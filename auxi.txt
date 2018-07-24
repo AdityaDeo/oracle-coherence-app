@@ -1,0 +1,5 @@
+deo.App
+-nodeType server -nodeId server1
+-nodeType server -nodeId server2
+-nodeType client -nodeId client1
+-nodeType queryConsoleNode -nodeId queryConsoleNode
