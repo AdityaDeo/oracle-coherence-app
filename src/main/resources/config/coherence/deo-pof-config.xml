@@ -13,5 +13,20 @@
 			<type-id>10001</type-id>
 			<class-name>deo.domain.Transaction</class-name>
 		</user-type>
+
+		<user-type>
+			<type-id>10002</type-id>
+			<class-name>deo.coherence.aggregators.PartitionInspectingAggregator</class-name>
+		</user-type>
+
+		<user-type>
+			<type-id>10003</type-id>
+			<class-name>deo.domain.Customer</class-name>
+		</user-type>
+
+		<user-type>
+			<type-id>10004</type-id>
+			<class-name>deo.coherence.processors.CustomerRenamingProcessor</class-name>
+		</user-type>
 	</user-type-list>
 </pof-config>

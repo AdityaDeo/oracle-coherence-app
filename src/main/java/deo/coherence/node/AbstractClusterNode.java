@@ -5,6 +5,7 @@ import com.tangosol.net.ConfigurableCacheFactory;
 import com.tangosol.net.DefaultCacheServer;
 import com.tangosol.net.events.EventInterceptor;
 import com.tangosol.net.events.application.LifecycleEvent;
+import deo.coherence.helpers.MemberUtils;
 import org.apache.log4j.Logger;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public abstract class AbstractClusterNode implements ClusterNode {
     }
 
     @Override
-    public synchronized void start() {
+    public synchronized void start(String nodeId) {
         try {
             if (isNodeUp) {
                 logger.info("Server is already up");
@@ -37,6 +38,7 @@ public abstract class AbstractClusterNode implements ClusterNode {
             }
 
             beforeStartingCacheServer();
+            MemberUtils.setLocalMemberRole(nodeId);
             startCacheServer();
             isNodeUp = true;
             logger.info("Server started");
@@ -73,10 +75,8 @@ public abstract class AbstractClusterNode implements ClusterNode {
 
         countDownLatch.await();
         logger.info(format("Started services: %s", startedServices));
-    }
 
-    public Logger getLogger() {
-        return logger;
+        CacheFactory.ensureCluster();
     }
 
     private static class ServerEventInterceptor implements EventInterceptor<LifecycleEvent> {

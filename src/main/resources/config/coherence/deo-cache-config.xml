@@ -15,7 +15,7 @@
 	<caching-schemes>
 		<distributed-scheme>
 			<scheme-name>deo-distributed-scheme</scheme-name>
-			<service-name>DistributedCache</service-name>
+			<service-name>Deo-DistributedCache</service-name>
 			<partition-count>11</partition-count>
 
 			<backing-map-scheme>

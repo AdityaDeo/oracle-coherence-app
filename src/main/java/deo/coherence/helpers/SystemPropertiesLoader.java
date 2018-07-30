@@ -18,6 +18,12 @@ public class SystemPropertiesLoader {
         setSystemProperties(properties);
     }
 
+    public static void setSystemProperty(String key, String value) {
+        Properties properties = new Properties();
+        properties.put(key, value);
+        setSystemProperties(properties);
+    }
+
     public static synchronized void setSystemProperties(Properties properties) {
         Properties current = System.getProperties();
         LOGGER.info(format("About to add system properties. Current properties [%s]. Properties to be added [%s]", current, properties));

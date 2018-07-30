@@ -33,7 +33,7 @@ public class App {
 
     private void startNode(String nodeType, String nodeId) throws Exception {
         ClusterNode node = ClusterNodeFactory.getNode(nodeType);
-        node.start();
+        node.start(nodeId);
         node.afterStart();
     }
 
